@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bm8vaa8jqqf6f"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_3dgbr"]
+[ext_resource type="PackedScene" uid="uid://i62x3vnorybt" path="res://scenes/killzone.tscn" id="2_bne8d"]
+[ext_resource type="Texture2D" uid="uid://05dpi4osf2ke" path="res://assets/sprites/slime_purple.png" id="2_vvjgm"]
+[ext_resource type="AudioStream" uid="uid://dpwlvrnkvleoq" path="res://assets/sounds/hurt.wav" id="4_k660t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hxh3"]
+atlas = ExtResource("2_vvjgm")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1xsq"]
+atlas = ExtResource("2_vvjgm")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy57i"]
+atlas = ExtResource("2_vvjgm")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tomp5"]
+atlas = ExtResource("2_vvjgm")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfthp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hxh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1xsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy57i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tomp5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hav14"]
+size = Vector2(13, 19)
+
+[node name="Slime" type="RigidBody2D"]
+script = ExtResource("1_3dgbr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_nfthp")
+autoplay = "default"
+frame_progress = 0.521977
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_hav14")
+
+[node name="Killzone" parent="." instance=ExtResource("2_bne8d")]
+type = "enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_hav14")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(11, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-10, 0)
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k660t")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

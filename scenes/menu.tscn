@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://d288oatiunnol"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ln15a"]
+[ext_resource type="FontFile" uid="uid://cfl5lipqu28ia" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_n5ewl"]
+[ext_resource type="FontFile" uid="uid://bx5deslvb51h" path="res://assets/fonts/PixelOperator8.ttf" id="2_p1anm"]
+[ext_resource type="Texture2D" uid="uid://tso4sqyokuqm" path="res://assets/sprites/coin.png" id="4_otn6i"]
+
+[sub_resource type="Gradient" id="Gradient_ghkvj"]
+offsets = PackedFloat32Array(0, 0.337662, 0.668831)
+colors = PackedColorArray(0.694293, 0.591501, 0.162613, 1, 0.730148, 0.171698, 0.958398, 1, 0.113873, 0.644121, 0.70944, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6jdha"]
+gradient = SubResource("Gradient_ghkvj")
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_ln15a")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_6jdha")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -100.0
+offset_right = 292.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.934297, 0.941558, 0.927924, 1)
+theme_override_fonts/font = ExtResource("1_n5ewl")
+theme_override_font_sizes/font_size = 48
+text = "DRAGON KNIGHT"
+
+[node name="PlayButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = 19.0
+offset_right = 118.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p1anm")
+theme_override_font_sizes/font_size = 32
+text = "New game"
+
+[node name="LevelButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 108.0
+offset_right = 156.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p1anm")
+theme_override_font_sizes/font_size = 32
+text = "Level select"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("4_otn6i")
+region_enabled = true
+region_rect = Rect2(3, 3, 10, 10)
+
+[node name="TotalCoins" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_n5ewl")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://o0xb47vkujhe"]
+
+[ext_resource type="Texture2D" uid="uid://tso4sqyokuqm" path="res://assets/sprites/coin.png" id="1_0uupn"]
+[ext_resource type="FontFile" uid="uid://bx5deslvb51h" path="res://assets/fonts/PixelOperator8.ttf" id="2_midgh"]
+[ext_resource type="Texture2D" uid="uid://34nsompfjaaq" path="res://assets/images/arrowLeft.png" id="3_44mw2"]
+[ext_resource type="Texture2D" uid="uid://pfg4cyeyai78" path="res://assets/images/arrowRight.png" id="4_7nsgn"]
+[ext_resource type="Texture2D" uid="uid://c30gu87mcw7lt" path="res://assets/images/arrowUp.png" id="5_mtxlt"]
+[ext_resource type="Texture2D" uid="uid://dd47718c3joaf" path="res://assets/sprites/sword1.png" id="6_sryb5"]
+
+[sub_resource type="GDScript" id="GDScript_sb4yg"]
+
+[node name="Hud" type="CanvasLayer"]
+layer = 2
+script = SubResource("GDScript_sb4yg")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 56.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("1_0uupn")
+region_enabled = true
+region_rect = Rect2(3, 3, 10, 10)
+
+[node name="count" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_midgh")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="Controls" type="Node" parent="."]
+
+[node name="Left" type="TouchScreenButton" parent="Controls"]
+visible = false
+position = Vector2(64, 480)
+texture_normal = ExtResource("3_44mw2")
+passby_press = true
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="Controls"]
+visible = false
+position = Vector2(164, 480)
+texture_normal = ExtResource("4_7nsgn")
+passby_press = true
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="Controls"]
+visible = false
+position = Vector2(992, 480)
+texture_normal = ExtResource("5_mtxlt")
+action = "jump"
+
+[node name="Panel" type="Panel" parent="Controls"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -168.0
+offset_right = -264.0
+offset_bottom = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2.90767, 2.90767)
+
+[node name="Attack" type="TouchScreenButton" parent="Controls/Panel"]
+position = Vector2(5.50267, 5.50268)
+scale = Vector2(1.91744, 1.91744)
+texture_normal = ExtResource("6_sryb5")
+action = "attack"

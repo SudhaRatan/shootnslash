@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg4dnu4l4y0l5"]
+
+[ext_resource type="Script" path="res://scripts/trophy.gd" id="1_1ej3k"]
+[ext_resource type="Texture2D" uid="uid://bx0tp43lwxe5w" path="res://assets/sprites/Sheet.png" id="1_vm3yl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exfey"]
+size = Vector2(12, 19)
+
+[node name="Trophy" type="Area2D"]
+script = ExtResource("1_1ej3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vm3yl")
+region_enabled = true
+region_rect = Rect2(112, 127, 16, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_exfey")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
