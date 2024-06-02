@@ -1612,6 +1612,7 @@ libraries = {
 autoplay = "move"
 
 [node name="platform3" parent="Platforms" instance=ExtResource("9_rv7sf")]
+visible = false
 position = Vector2(656, 8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform3"]
@@ -1664,17 +1665,18 @@ theme_override_fonts/font = ExtResource("10_q1cru")
 text = "Great Job!!"
 
 [node name="Label5" type="Label" parent="Labels"]
-offset_left = 183.0
-offset_top = -282.0
-offset_right = 289.0
-offset_bottom = -209.0
+offset_left = 359.0
+offset_top = -81.0
+offset_right = 465.0
+offset_bottom = -8.0
+scale = Vector2(0.706444, 0.706444)
 theme_override_fonts/font = ExtResource("10_q1cru")
 text = "Finish the level
-->"
-horizontal_alignment = 2
+<-"
 autowrap_mode = 2
 uppercase = true
 
 [node name="Trophy" parent="." instance=ExtResource("11_ohl5a")]
-position = Vector2(296, -218)
+position = Vector2(356, -36)
+scale = Vector2(0.448121, 0.448121)
 collision_mask = 2
