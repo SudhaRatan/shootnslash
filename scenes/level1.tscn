@@ -1516,6 +1516,7 @@ script = ExtResource("1_yyp6u")
 
 [node name="Hud" parent="GameManager" instance=ExtResource("2_eim3j")]
 layer = 0
+visible = false
 script = null
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
@@ -1573,7 +1574,7 @@ position_smoothing_enabled = true
 position = Vector2(0, -56)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("7_1bhok")]
-position = Vector2(136, 24)
+position = Vector2(248, 8)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("7_1bhok")]
 position = Vector2(104, -16)
@@ -1588,7 +1589,7 @@ position = Vector2(576, -8)
 position = Vector2(317, -216)
 
 [node name="Slime" parent="." instance=ExtResource("8_oy6dq")]
-position = Vector2(141, 0)
+position = Vector2(221, 16)
 
 [node name="Platforms" type="Node" parent="."]
 

@@ -16,7 +16,7 @@ func _process(delta):
 		direction = 1
 		animated_sprite.flip_h = false
 	
-	#position.x += direction * speed * delta
+	position.x += direction * speed * delta
 
 
 func _on_killzone_body_entered(body):

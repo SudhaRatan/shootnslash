@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o0xb47vkujhe"]
+[gd_scene load_steps=9 format=3 uid="uid://o0xb47vkujhe"]
 
 [ext_resource type="Texture2D" uid="uid://tso4sqyokuqm" path="res://assets/sprites/coin.png" id="1_0uupn"]
 [ext_resource type="FontFile" uid="uid://bx5deslvb51h" path="res://assets/fonts/PixelOperator8.ttf" id="2_midgh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://pfg4cyeyai78" path="res://assets/images/arrowRight.png" id="4_7nsgn"]
 [ext_resource type="Texture2D" uid="uid://c30gu87mcw7lt" path="res://assets/images/arrowUp.png" id="5_mtxlt"]
 [ext_resource type="Texture2D" uid="uid://dd47718c3joaf" path="res://assets/sprites/sword1.png" id="6_sryb5"]
+[ext_resource type="Texture2D" uid="uid://c3h357x1qysdh" path="res://assets/sprites/bullet.png" id="7_1xkgk"]
 
 [sub_resource type="GDScript" id="GDScript_sb4yg"]
 
@@ -39,42 +40,51 @@ text = "0"
 [node name="Controls" type="Node" parent="."]
 
 [node name="Left" type="TouchScreenButton" parent="Controls"]
-visible = false
 position = Vector2(64, 480)
 texture_normal = ExtResource("3_44mw2")
 passby_press = true
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="Controls"]
-visible = false
 position = Vector2(164, 480)
 texture_normal = ExtResource("4_7nsgn")
 passby_press = true
 action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="Controls"]
-visible = false
 position = Vector2(992, 480)
 texture_normal = ExtResource("5_mtxlt")
 action = "jump"
 
-[node name="Panel" type="Panel" parent="Controls"]
-visible = false
+[node name="AttackPanel" type="Panel" parent="Controls"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
+offset_left = -272.0
 offset_top = -168.0
-offset_right = -264.0
+offset_right = -232.0
 offset_bottom = -128.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(2.90767, 2.90767)
+scale = Vector2(2.33702, 2.33702)
 
-[node name="Attack" type="TouchScreenButton" parent="Controls/Panel"]
-position = Vector2(5.50267, 5.50268)
-scale = Vector2(1.91744, 1.91744)
+[node name="Attack" type="TouchScreenButton" parent="Controls/AttackPanel"]
+position = Vector2(8.25403, 8.25403)
+scale = Vector2(1.39308, 1.39308)
 texture_normal = ExtResource("6_sryb5")
 action = "attack"
+
+[node name="ShootPanel" type="Panel" parent="Controls"]
+offset_left = 992.0
+offset_top = 360.0
+offset_right = 1032.0
+offset_bottom = 400.0
+scale = Vector2(2.4726, 2.4726)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Controls/ShootPanel"]
+position = Vector2(-12.9418, -12.9418)
+scale = Vector2(0.546484, 0.546484)
+texture_normal = ExtResource("7_1xkgk")
+action = "shoot"

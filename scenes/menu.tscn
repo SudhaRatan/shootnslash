@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://tso4sqyokuqm" path="res://assets/sprites/coin.png" id="4_otn6i"]
 
 [sub_resource type="Gradient" id="Gradient_ghkvj"]
-offsets = PackedFloat32Array(0, 0.337662, 0.668831)
-colors = PackedColorArray(0.694293, 0.591501, 0.162613, 1, 0.730148, 0.171698, 0.958398, 1, 0.113873, 0.644121, 0.70944, 1)
+offsets = PackedFloat32Array(0.233333, 0.67619)
+colors = PackedColorArray(0.694293, 0.591501, 0.162613, 1, 0.113873, 0.644121, 0.70944, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6jdha"]
 gradient = SubResource("Gradient_ghkvj")
